@@ -16,3 +16,29 @@ function getData() {
 }
 
 getData();
+
+const req = new Request("https://jsonplaceholder.typicode.com/users", {
+  method: "GET",
+  headers: new Headers({
+    "Content-Type": "application/json",
+  }),
+  mode: "cors",
+  cache: "no-cache",
+  credentials: "same-origin",
+});
+
+async function fetchData() {
+  try {
+    const resp = await fetch(req);
+    if (!resp.ok) {
+      throw new Error("Response went wrong XD", resp.status, resp.text);
+    } else {
+      const data = await resp.json();
+      console.log(data);
+    }
+  } catch (err) {
+    console.error(err, err.message);
+  }
+}
+
+fetchData();
