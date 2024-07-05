@@ -10,7 +10,7 @@ async function fetchData() {
   const response = await fetch(url);
   try {
     if (!response.ok) {
-      throw new Error("response gone wrong!", response.status);
+      throw new Error("response gone wrong!", response.status, response.text);
     } else {
       console.log(response); //unformatted response from the api call
     }
@@ -18,7 +18,7 @@ async function fetchData() {
     //parse repsone to JSON  format
     const dataObj = await response.json();
   } catch (error) {
-    console.error("Error encounterd");
+    console.error("Error encounterd", error.message);
   }
 }
 
