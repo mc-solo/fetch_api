@@ -1,6 +1,4 @@
-## Working with the Fetch API
-
-# Learning the Fetch API in JavaScript
+# Working with the Fetch API
 
 ## Introduction
 
