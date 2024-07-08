@@ -4,13 +4,13 @@
 // Available to JS via the global variable: window
 // We don have to write window. It's implied
 
-// const myObject = {
-//   name: "Wondwosen Asegid",
-//   age: 21,
-//   logName: function () {
-//     console.log(this.name);
-//   },
-// };
+const myObject = {
+  name: "Wondwosen Asegid",
+  age: 21,
+  logName: function () {
+    console.log(this.name);
+  },
+};
 
 const myArray = [1, 3, 5, 7];
 
@@ -27,17 +27,6 @@ const parseBackToObject = JSON.parse(data_1);
 console.log(parseBackToObject, typeof parseBackToObject);
 
 // the localStorage
-
-// this is unstringfified,
-const myObject = {
-  name: "Wondwosen Asegid",
-  age: 21,
-  logName: function () {
-    console.log(this.name);
-  },
-};
-
-const localStoreData = localStorage.setItem("localStoreObject", myObject); // result in [obj obj]
-
-const strLocalData = JSON.stringify(localStoreData);
-console.log(strLocalData, typeof localStoreData);
+localStorage.setItem("localObject", JSON.stringify(myObject));
+const dd = localStorage.getItem(JSON.parse(localObject));
+console.log(dd, typeof dd);
