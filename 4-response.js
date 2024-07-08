@@ -10,13 +10,21 @@ let obj = {
   favoriteColor: "blue",
 };
 
-function getData() {
-  let file = new File([JSON.stringify(obj)], "mydata.json");
-  let response = new Response(file, {
+const getData = function () {
+  // convert obj to string
+  const jsonStr = JSON.stringify(obj);
+
+  // use the converted str to make a new file
+  const file = new File([jsonStr], "mydata.json");
+
+  // make a response object from the file
+  const response = new Response(file, {
     status: 200,
-    header: {
-      "content-type": "applicaiton/json",
+    headers: {
+      "content-type": "application/json",
       "content-length": file.size,
     },
   });
-}
+
+  return response;
+};
