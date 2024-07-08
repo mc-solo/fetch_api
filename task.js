@@ -19,7 +19,7 @@ async function getData() {
     }
   } catch (error) {
     console.warn("Error encountered during fetch");
-    console.warn(`${error.status}`);
+    console.warn(`${error.message}`);
   }
 }
 
